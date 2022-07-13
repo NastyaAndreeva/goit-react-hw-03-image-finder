@@ -87,7 +87,7 @@ export class App extends Component {
       <AppContainer>
         <Searchbar onSubmit={this.handleSubmit} loadMore={this.loadMore} />
 
-        <ToastContainer />
+        <ToastContainer autoClose={3000} />
         {status === 'pending' && (
           <IconContainer>
             <ThreeDots color={theme.colors.searchBarBgc} />

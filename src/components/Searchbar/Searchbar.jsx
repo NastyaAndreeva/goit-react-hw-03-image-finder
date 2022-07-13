@@ -12,15 +12,7 @@ import {
 export const Searchbar = ({ onSubmit }) => {
   const handleSubmit = (values, { resetForm }) => {
     if (values.searchQuery.trim() === '') {
-      return toast.error('Please, enter search query.', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      return toast.error('Please, enter search query.');
     }
     onSubmit(values);
     resetForm();

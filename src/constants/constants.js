@@ -5,4 +5,6 @@ export const params = {
   orientation: 'horizontal',
   safesearch: true,
   per_page: 12,
+  q: '',
+  page: 1,
 };

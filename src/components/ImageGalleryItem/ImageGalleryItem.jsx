@@ -3,8 +3,8 @@ import {
   ImageGalleryListItemImage,
 } from './ImageGalleryListItem';
 
-export const ImageGalleryItem = ({ item }) => (
-  <ImageGalleryListItem>
-    <ImageGalleryListItemImage src={item.previewURL} alt={item.tags} />
+export const ImageGalleryItem = ({ item, onClick }) => (
+  <ImageGalleryListItem onClick={onClick}>
+    <ImageGalleryListItemImage src={item.webformatURL} alt={item.tags} />
   </ImageGalleryListItem>
 );

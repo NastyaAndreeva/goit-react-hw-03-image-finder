@@ -12,6 +12,6 @@ export const getImages = async params => {
     });
     return response.data.hits;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

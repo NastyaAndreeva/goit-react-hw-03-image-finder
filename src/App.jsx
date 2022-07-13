@@ -1,41 +1,32 @@
 import { Component } from 'react';
-import { getImages } from './services/api';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ImageGallery } from 'components/ImageGallery';
 import { Searchbar } from 'components/Searchbar';
-import { params } from 'constants/constants';
-import { LoadMore } from 'components/LoadMore';
 import { AppContainer } from 'components/AppContainer/AppContainer';
+import { LoadMore } from 'components/LoadMore';
 
 export class App extends Component {
   state = {
-    q: '',
+    searchQuery: '',
     page: 1,
-    items: [],
   };
-
-  async componentDidUpdate(_, prevState) {
-    const { page, q } = this.state;
-    if (prevState.page !== page || prevState.q !== q) {
-      const result = await getImages({ ...params, page, q });
-      this.setState({ items: result });
-    }
-  }
 
   handleSubmit = ({ searchQuery }) => {
-    this.setState({ q: searchQuery });
+    this.setState({ searchQuery, page: 1 });
   };
-
   loadMore = () => {
     this.setState(state => ({ page: state.page + 1 }));
   };
 
   render() {
-    const { items } = this.state;
+    const { searchQuery, page } = this.state;
     return (
       <AppContainer>
         <Searchbar onSubmit={this.handleSubmit} loadMore={this.loadMore} />
-        <ImageGallery items={items} />
-        {items.length > 0 && <LoadMore loadMore={this.loadMore} />}
+        <ImageGallery searchQuery={searchQuery} page={page} />
+        {searchQuery !== '' && <LoadMore loadMore={this.loadMore} />}
+        <ToastContainer />
       </AppContainer>
     );
   }

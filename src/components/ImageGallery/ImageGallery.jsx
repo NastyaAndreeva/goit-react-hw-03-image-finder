@@ -1,30 +1,30 @@
-import { ImageGalleryList } from './ImageGalleryList';
-import { ImageGalleryItem } from 'components/ImageGalleryItem';
-import { LoadMore } from 'components/LoadMore';
+import { ImageGalleryList } from './ImageGallery.styled';
+import { ImageGalleryItem } from 'components/ImageGallery/ImageGalleryItem';
+import { Button } from 'components/ui/Button';
 
 export const ImageGallery = ({
   items,
   toggleModal,
-  setActiveIndex,
+  setActiveImageURL,
   loadMore,
 }) => {
   return (
     <>
       <ImageGalleryList>
-        {items.map((item, index) => {
+        {items.map(item => {
           return (
             <ImageGalleryItem
               item={item}
               key={item.id}
               onClick={() => {
                 toggleModal();
-                setActiveIndex(index);
+                setActiveImageURL(item.largeImageURL);
               }}
             />
           );
         })}
       </ImageGalleryList>
-      <LoadMore loadMore={loadMore} />
+      <Button onClick={loadMore}>Load More</Button>
     </>
   );
 };

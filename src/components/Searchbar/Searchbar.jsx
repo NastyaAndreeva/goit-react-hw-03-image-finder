@@ -7,7 +7,7 @@ import {
   SearchBarButton,
   SearchBarheader,
   SearchBarButtonLabel,
-} from './SearchBarElements';
+} from './SearchBar.styled';
 
 export const Searchbar = ({ onSubmit }) => {
   const handleSubmit = (values, { resetForm }) => {

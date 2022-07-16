@@ -1,7 +1,7 @@
 import {
   ImageGalleryListItem,
   ImageGalleryListItemImage,
-} from './ImageGalleryListItem';
+} from './ImageGalleryItem.styled';
 
 export const ImageGalleryItem = ({ item, onClick }) => (
   <ImageGalleryListItem onClick={onClick}>

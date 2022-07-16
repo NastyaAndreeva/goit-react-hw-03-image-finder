@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalOverlay, ModalWindow } from './ModalElements';
+import { ModalOverlay, ModalWindow } from './Modal.styled';
 
 const portal = document.querySelector('#modal-root');
 
@@ -27,7 +27,7 @@ export class Modal extends Component {
     return createPortal(
       <ModalOverlay onClick={this.handleBackdrop}>
         <ModalWindow>
-          <img src={this.props.item.largeImageURL} alt={this.props.item.tags} />
+          <img src={this.props.activeimageURL} alt="modal url" />
         </ModalWindow>
       </ModalOverlay>,
       portal

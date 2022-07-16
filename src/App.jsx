@@ -66,8 +66,8 @@ export class App extends Component {
     this.setState(({ showModal }) => ({ showModal: !showModal }));
   };
 
-  setActiveImageURL = imageURL => {
-    this.setState({ activeimageURL: imageURL });
+  setActiveImageURL = activeimageURL => {
+    this.setState({ activeimageURL });
   };
 
   handleSubmit = ({ searchQuery }) => {
